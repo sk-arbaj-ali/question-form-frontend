@@ -1,0 +1,28 @@
+<div [formGroup]="formGroup" class="space-y-6 bg-linear-to-br from-teal-50 to-green-50 p-8 rounded-xl border-l-4 border-teal-500 mb-4">
+    <h2 class="text-2xl font-bold text-teal-900 mb-6">Additional Information</h2>
+
+    <div class="space-y-4">
+        <label
+            class="flex items-center gap-3 p-4 bg-white rounded-lg border border-teal-200 cursor-pointer hover:bg-teal-50 transition">
+            <input formControlName="checkOptionA" (change)="trackChange()" value="1" type="checkbox" class="w-5 h-5 text-teal-600 rounded">
+            <input formControlName="optionA" type="text" placeholder="Option A" class="flex-1 border-0 focus:ring-0 px-3 py-2">
+        </label>
+
+        <label
+            class="flex items-center gap-3 p-4 bg-white rounded-lg border border-teal-200 cursor-pointer hover:bg-teal-50 transition">
+            <input formControlName="checkOptionB" (change)="trackChange()" value="2" type="checkbox" class="w-5 h-5 text-teal-600 rounded">
+            <input formControlName="optionB" type="text" placeholder="Option B" class="flex-1 border-0 focus:ring-0 px-3 py-2">
+        </label>
+
+        <label
+            class="flex items-center gap-3 p-4 bg-white rounded-lg border border-teal-200 cursor-pointer hover:bg-teal-50 transition">
+            <input formControlName="checkOptionC" (change)="trackChange()" value="3" type="checkbox" class="w-5 h-5 text-teal-600 rounded">
+            <input formControlName="optionC" type="text" placeholder="Option C" class="flex-1 border-0 focus:ring-0 px-3 py-2">
+        </label>
+        <label
+            class="flex items-center gap-3 p-4 bg-white rounded-lg border border-teal-200 cursor-pointer hover:bg-teal-50 transition">
+            <input formControlName="checkOptionD" (change)="trackChange()" value="4" type="checkbox" class="w-5 h-5 text-teal-600 rounded">
+            <input formControlName="optionD" type="text" placeholder="Option D" class="flex-1 border-0 focus:ring-0 px-3 py-2">
+        </label>
+    </div>
+</div>

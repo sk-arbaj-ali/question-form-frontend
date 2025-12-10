@@ -1,0 +1,88 @@
+{
+  "questions": [
+    {
+      "id": "9100",
+      "groupId": "CS11-10-12-2025",
+      "title": "Write about the C programming",
+      "text": "Who and when C programming was invented.",
+      "hints": "inventor of c language.",
+      "qType": "mcq",
+      "marks": 2,
+      "answers": {
+        "optionA": "Dennis Ritchie",
+        "optionB": "Radmus Lardof",
+        "optionC": "James Gosling",
+        "optionD": "Guido Van Rossum",
+        "correctAnswer": "1"
+      }
+    },
+    {
+      "id": "3899",
+      "groupId": "CS11-10-12-2025",
+      "title": "DSA",
+      "text": "Which of the following statements about a Stack data structure are correct?\n",
+      "hints": "Think about the how stack works.",
+      "qType": "multi",
+      "marks": 3,
+      "status": "approved",
+      "answers": {
+        "optionA": "It follows the LIFO (Last In First Out) principle.",
+        "optionB": "Elements can be inserted or deleted from both ends.",
+        "optionC": "It is used for implementing recursion and function calls.",
+        "optionD": "It uses the FIFO (First In First Out) principle.",
+        "checkOptionA": true,
+        "checkOptionB": false,
+        "checkOptionC": true,
+        "checkOptionD": false
+      }
+    },
+    {
+      "id": "9426",
+      "groupId": "CS-10-12-2025",
+      "title": "Lenovo",
+      "text": "Price of Lenovo Laptop",
+      "hints": "check amazon.in",
+      "qType": "short-answer",
+      "marks": 1,
+      "status": "approved",
+      "answers": {}
+    },
+    {
+      "id": "10a2",
+      "groupId": "CS-10-12-2025",
+      "title": "Favourite Fruit",
+      "text": "What is your favourite fruit?",
+      "hints": "N/A",
+      "qType": "mcq",
+      "marks": 2,
+      "status": "approved",
+      "answers": {
+        "optionA": "Mango",
+        "optionB": "Apple",
+        "optionC": "Banana",
+        "optionD": "Orange",
+        "correctAnswer": "1"
+      }
+    },
+    {
+      "id": "5132",
+      "groupId": "CS-10-12-2025",
+      "title": "AA",
+      "text": "AA",
+      "hints": "AA",
+      "qType": "true-false",
+      "marks": 1,
+      "status": "approved",
+      "answers": {
+        "correctAnswer": "true"
+      }
+    }
+  ],
+  "questionGroups": [
+    {
+      "id": "132b",
+      "groupName": "CS-10-12-2025",
+      "groupStatus": "active"
+    }
+  ]
+}
