@@ -22,5 +22,6 @@ export class QuestionGroupAddModal {
   onSubmit(){
     this.http.post("http://localhost:3000/questionGroups", this.form.value)
     .subscribe(data=>alert(`${(data as QuestionGroups).groupName} added successfully.`))
+    this.form.reset();
   }
 }

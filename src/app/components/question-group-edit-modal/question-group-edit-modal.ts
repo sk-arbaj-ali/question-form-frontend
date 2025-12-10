@@ -11,8 +11,15 @@ import QuestionGroups from '../../DataTypes/questionGroupTypes';
 })
 export class QuestionGroupEditModal {
   showEditModal = output();
-  id = input('');
+  id = input<string|undefined>('');
   http = inject(HttpClient);
+  constructor(){
+    this.http.get('http://localhost:3000/questionGroups?id='+this.id())
+    .subscribe(data => {
+      let formData = (data as QuestionGroups[]);
+      this.form.setValue({groupName:formData[0].groupName,groupStatus:formData[0].groupStatus});
+    })
+  }
   emitShowEditModal(){
     this.showEditModal.emit();
   }
@@ -21,7 +28,10 @@ export class QuestionGroupEditModal {
     groupStatus: new FormControl('')
   })
   onSubmit(){
-    this.http.post("http://localhost:3000/questionGroups", this.form.value)
-    .subscribe(data=>alert(`${(data as QuestionGroups).groupName} added successfully.`))
+    this.http.patch("http://localhost:3000/questionGroups/"+this.id(), this.form.value)
+    .subscribe(data=>{
+      alert(`${(data as QuestionGroups).groupName} patched successfully.`)
+      this.emitShowEditModal();
+    });
   }
 }

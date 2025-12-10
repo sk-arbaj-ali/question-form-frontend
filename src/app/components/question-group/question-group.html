@@ -7,7 +7,7 @@
                     <p class="text-slate-600">Manage your question groups and their status</p>
                 </div>
                 <div>
-                    <button (click)="changeAddModalMode()"
+                    <button (click)="toggleAddQuestionModal(true)"
                         class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,8 +18,13 @@
                     </button>
                 </div>
             </div>
-            <app-question-group-add-modal [style.display]="showAddModal()" (showModal)="changeAddModalMode()" />
-            <app-question-group-edit-modal [style.display]="showEditModal()" (showEditModal)="changeEditModalMode()" />
+            @if(isAddQuestionModalVisible()){
+                <app-question-group-add-modal (showModal)="toggleAddQuestionModal(false)" />
+            }
+            @else if(isEditQuestionModalVisible()){
+                <app-question-group-edit-modal (showEditModal)="toggleEditQuestionModal(false)" [id]="idForQuestionEdit()" />
+            }
+            <!-- <app-question-group-edit-modal [style.display]="showEditModal()" (showEditModal)="changeEditModalMode()" /> -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -45,7 +50,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center justify-center gap-2">
-                                        <button (click)="changeEditModalMode(item.id)"
+                                        <button (click)="toggleEditQuestionModal(true,item.id)"
                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

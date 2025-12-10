@@ -11,34 +11,22 @@ import { QuestionGroupEditModal } from "../question-group-edit-modal/question-gr
   styleUrl: './question-group.css',
 })
 export class QuestionGroup {
-  showAddModal = signal('none');
-  showEditModal = signal('none');
-  idInputForEditModal = signal('');
+  isAddQuestionModalVisible = signal(false);
+  isEditQuestionModalVisible = signal(false);
+  idForQuestionEdit = signal<string|undefined>('');
   http = inject(HttpClient);
   qGroups = signal<QuestionGroups[]>([]);
   constructor(){
     this.fetchGroupsData();
   }
-  changeAddModalMode(){
-    this.showAddModal.update((style)=>{
-      if(style === 'none'){
-        this.fetchGroupsData();
-        return 'block'
-      }
-      this.fetchGroupsData();
-      return 'none';
-    });
+  toggleAddQuestionModal(visibility:boolean){
+    this.isAddQuestionModalVisible.set(visibility);
+    if(visibility==false) this.fetchGroupsData();
   }
-  changeEditModalMode($id:string){
-    this.idInputForEditModal.set($id);
-    this.showEditModal.update((style)=>{
-      if(style === 'none'){
-        this.fetchGroupsData();
-        return 'block'
-      }
-      this.fetchGroupsData();
-      return 'none';
-    });
+  toggleEditQuestionModal(visibility:boolean, id?:string){
+    if(visibility === true) this.idForQuestionEdit.set(id);
+    this.isEditQuestionModalVisible.set(visibility);
+    if(visibility==false) this.fetchGroupsData();
   }
   fetchGroupsData(){
     this.http.get("http://localhost:3000/questionGroups")
