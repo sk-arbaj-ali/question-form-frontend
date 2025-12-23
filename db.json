@@ -76,6 +76,19 @@
       "answers": {
         "correctAnswer": "true"
       }
+    },
+    {
+      "id": "d29f",
+      "groupId": "CS-10-12-2025",
+      "title": "SSC",
+      "text": "SSC",
+      "hints": "SSC",
+      "qType": "true-false",
+      "marks": 2,
+      "status": "approved",
+      "answers": {
+        "correctAnswer": "false"
+      }
     }
   ],
   "questionGroups": [
@@ -83,6 +96,28 @@
       "id": "132b",
       "groupName": "CS-10-12-2025",
       "groupStatus": "active"
+    }
+  ],
+  "students":[
+    {
+      "id":"11a4",
+      "name":"Suman",
+      "email":"suman@test.com",
+      "password":"*****"
+    }
+  ],
+  "answer-sheets": [
+    {
+      "student-id":"11a4",
+      "question-group-id":"132b",
+      "answers":[
+        {
+          "question-id":"9100",
+          "provided-answer":"optionA",
+          "isCorrect":false
+        }
+      ],
+      "final-marks":0
     }
   ]
 }
