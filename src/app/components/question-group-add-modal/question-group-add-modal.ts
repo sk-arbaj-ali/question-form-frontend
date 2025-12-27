@@ -19,7 +19,7 @@ export class QuestionGroupAddModal {
     groupStatus: new FormControl('')
   })
   onSubmit(){
-    this.http.post("http://localhost:4000/api/v1/question-groups/add-new-group", this.form.value)
+    this.http.post("https://question-form-backend.onrender.com/api/v1/question-groups/add-new-group", this.form.value)
     .subscribe((data:any)=>alert(`${(data)?.data?.groupName} added successfully.`));
     this.form.reset();
   }

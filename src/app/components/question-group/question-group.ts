@@ -29,7 +29,7 @@ export class QuestionGroup {
     if(visibility==false) this.fetchGroupsData();
   }
   fetchGroupsData(){
-    this.http.get("http://localhost:4000/api/v1/question-groups/get-all-groups")
+    this.http.get("https://question-form-backend.onrender.com/api/v1/question-groups/get-all-groups")
     .subscribe((res:any) => {
       if(res.status === 200){
         this.qGroups.set(res?.data as QuestionGroups[])
@@ -37,7 +37,7 @@ export class QuestionGroup {
     });
   }
   deleteGroup(id:string){
-    this.http.post("http://localhost:4000/api/v1/question-groups/delete-one-question-group-by-id",{_id:id})
+    this.http.post("https://question-form-backend.onrender.com/api/v1/question-groups/delete-one-question-group-by-id",{_id:id})
     .subscribe((res:any)=>{
       this.fetchGroupsData();
       alert(`${res?.data?.groupName} deleted successfully.`);

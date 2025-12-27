@@ -32,7 +32,7 @@ export class QuestionForm {
   router = inject(Router);
   http = inject(HttpClient);
   constructor(){
-    this.http.get("http://localhost:4000/api/v1/question-groups/get-all-groups")
+    this.http.get("https://question-form-backend.onrender.com/api/v1/question-groups/get-all-groups")
     .subscribe((res:any) => this.questionGroups.set(res?.data as QuestionGroups[]));
   }
   onSubmit(){
@@ -60,7 +60,7 @@ export class QuestionForm {
       formBody = {...formValue};
     }
     
-    this.http.post("http://localhost:4000/api/v1/questions/add-new-question", formBody)
+    this.http.post("https://question-form-backend.onrender.com/api/v1/questions/add-new-question", formBody)
     .subscribe((data)=>console.log(data));
     // console.log({...formValue,answers:{...subForm}});
   }

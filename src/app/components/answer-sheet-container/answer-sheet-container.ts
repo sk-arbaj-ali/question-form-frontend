@@ -13,7 +13,7 @@ export class AnswerSheetContainer {
   allStudents = signal<any[]>([]);
   activeQuestionGroup = signal('');
   loadProvidedAnswers(studentId:string){
-    this.http.get(`http://localhost:4000/api/v1/question-paper/get-provided-answer-by-student-id/${studentId}/${this.activeQuestionGroup()}`)
+    this.http.get(`https://question-form-backend.onrender.com/api/v1/question-paper/get-provided-answer-by-student-id/${studentId}/${this.activeQuestionGroup()}`)
     .subscribe((res:any)=>{
       this.providedAnswers.set(res?.data);
       console.log(res?.data);
@@ -21,7 +21,7 @@ export class AnswerSheetContainer {
   }
   constructor(){
     this.activeQuestionGroup.set(localStorage.getItem('activeQuestionGroup')!);
-    this.http.get('http://localhost:4000/api/v1/users/get-all-students-data')
+    this.http.get('https://question-form-backend.onrender.com/api/v1/users/get-all-students-data')
     .subscribe((res:any)=>{
       this.allStudents.set(res?.data);
     })

@@ -14,11 +14,11 @@ export class Logout {
   userData = JSON.parse(localStorage.getItem('userData')!);
   constructor(){
     if(this.userData){
-      this.http.post('http://localhost:4000/api/v1/users/logout',{},{headers:{Authorization:`Bearer ${this.userData?.accessToken}`}})
+      this.http.post('https://question-form-backend.onrender.com/api/v1/users/logout',{},{headers:{Authorization:`Bearer ${this.userData?.accessToken}`}})
       .subscribe(async (res:any)=>{
         if(res?.status === 200){
-          localStorage.removeItem('userData');
           localStorage.removeItem('activeQuestionGroup');
+          localStorage.removeItem('userData');
           alert('Successfully logged-out');
           location.reload();
         }

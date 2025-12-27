@@ -20,7 +20,7 @@ export class Signup {
   });
 
   onSubmit(){
-    this.http.post('http://localhost:4000/api/v1/users/register',{...(this.signupForm.value),role:this.role().toUpperCase()})
+    this.http.post('https://question-form-backend.onrender.com/api/v1/users/register',{...(this.signupForm.value),role:this.role().toUpperCase()})
     .subscribe((res:any)=>{
       alert(`User created : ${res?.data?.name}`);
       this.router.navigateByUrl(`login-to-platform/${this.role().toLowerCase()}`);

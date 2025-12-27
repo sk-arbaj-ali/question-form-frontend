@@ -27,11 +27,11 @@ export class AnswerForm {
   isStudentLoggedIn = localStorage.getItem('userData')? true : false;
   constructor() {
     
-    this.http.get("http://localhost:4000/api/v1/question-groups/get-active-question-group")
+    this.http.get("https://question-form-backend.onrender.com/api/v1/question-groups/get-active-question-group")
       .subscribe((res:any) => {
         this.activeQuestionGroup.set(res?.data);
         localStorage.setItem('activeQuestionGroup', String(res?.data.questionGroupId));
-        this.http.get("http://localhost:4000/api/v1/questions/get-all-questions/" + res?.data.questionGroupId)
+        this.http.get("https://question-form-backend.onrender.com/api/v1/questions/get-all-questions/" + res?.data.questionGroupId)
           .subscribe((res:any) => {
             this.questions.set(res?.data);
             this.totalQuestionCount = this.questions().length;
@@ -49,7 +49,7 @@ export class AnswerForm {
     let userData = JSON.parse(localStorage.getItem('userData')!);
     let activeQuestionGroup = localStorage.getItem('activeQuestionGroup');
     let formData = {studentId:userData?.user?._id,questionGroupId:activeQuestionGroup,answers:this.arrayOfQuestions };
-    this.http.post('http://localhost:4000/api/v1/question-paper/add-question-paper', formData)
+    this.http.post('https://question-form-backend.onrender.com/api/v1/question-paper/add-question-paper', formData)
     .subscribe((res:any)=>{
       if(res?.status === 201){
         alert("Your Question Paper submitted successfully.");

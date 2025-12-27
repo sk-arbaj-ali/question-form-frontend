@@ -19,13 +19,19 @@ export class Login {
   });
 
   constructor(){
-    if(localStorage.getItem('userData')){
-      this.router.navigateByUrl('');
+    const userData = JSON.parse(localStorage.getItem('userData')!);
+    if(userData){
+      if(userData?.user?.role.toLowerCase() === 'admin'){
+        this.router.navigateByUrl('/question-panel');
+      }
+      else{
+        this.router.navigateByUrl('');
+      }
     }
   }
 
   onSubmit(){
-    this.http.post('http://localhost:4000/api/v1/users/login',{...(this.loginForm.value)})
+    this.http.post('https://question-form-backend.onrender.com/api/v1/users/login',{...(this.loginForm.value)})
     .subscribe((res:any)=>{
       localStorage.setItem('userData',JSON.stringify(res?.data));
       alert(`Login Successful : ${res?.data?.user?.name}`);
