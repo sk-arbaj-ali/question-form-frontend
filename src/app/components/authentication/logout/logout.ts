@@ -20,7 +20,7 @@ export class Logout {
           localStorage.removeItem('activeQuestionGroup');
           localStorage.removeItem('userData');
           alert('Successfully logged-out');
-          location.reload();
+          location.href = 'https://question-form-frontend.onrender.com/'
         }
       });
     }
