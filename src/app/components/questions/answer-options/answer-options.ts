@@ -10,10 +10,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class AnswerOptions {
   form = model();
   formGroup = new FormGroup({
-    optionA: new FormControl(''),
-    optionB: new FormControl(''),
-    optionC: new FormControl(''),
-    optionD: new FormControl(''),
+    optA: new FormControl(''),
+    optB: new FormControl(''),
+    optC: new FormControl(''),
+    optD: new FormControl(''),
     correctAnswer: new FormControl('')
   });
   trackChange(){

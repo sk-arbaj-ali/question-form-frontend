@@ -1,3 +1,8 @@
+@if(!isStudentLoggedIn){
+    <app-home></app-home>
+}
+@if(isStudentLoggedIn)
+{
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-white rounded-lg shadow-lg p-8 border-t-4 border-transparent bg-clip-padding"
         style="border-image: linear-gradient(to right, #06b6d4, #0891b2, #06b6d4) 1;">
@@ -23,43 +28,52 @@
              @for (item of questions(); track $index) {
                 @if(item.qType === 'mcq'){
                     <app-mcq-component 
+                    [questionId]="item._id"
                     [title]="item.title"
                     [text]="item.text"
                     [hints]="item.hints"
                     [marks]="item.marks"
                     [answers]="item.answers"
+                    [(finalFormData)]="arrayOfSignals[$index]"
                     />
                 }
                 @else if(item.qType === 'multi'){
                     <app-msq-component
+                    [questionId]="item._id"
                     [title]="item.title"
                     [text]="item.text"
                     [hints]="item.hints"
                     [marks]="item.marks"
                     [answers]="item.answers"
+                    [(finalFormData)]="arrayOfSignals[$index]"
                     />
                 }
                 @else if(item.qType === 'true-false'){
                     <app-true-false-component
+                        [questionId]="item._id"
                         [title]="item.title"
                         [text]="item.text"
                         [hints]="item.hints"
                         [marks]="item.marks"
+                        [(finalFormData)]="arrayOfSignals[$index]"
                     />
                 }
                 @else {
                    <app-short-answer-component 
-                    [title]="item.title"
+                        [questionId]="item._id"
+                        [title]="item.title"
                         [text]="item.text"
                         [hints]="item.hints"
                         [marks]="item.marks"
+                        [(finalFormData)]="arrayOfSignals[$index]"
                    />
                 }
              }
              <!-- Questions ends here -->
 
             <div class="pt-4">
-                <button type="submit"
+                <button (click)="onSubmit()"
+                    type="button"
                     class="w-full bg-linear-to-r from-cyan-600 to-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 transition duration-200 shadow-lg">
                     Submit Paper
                 </button>
@@ -71,3 +85,4 @@
         </div>
     </div>
 </div>
+}

@@ -1,4 +1,4 @@
-<div class="space-y-4 bg-sky-50 p-6 rounded-lg border-l-4 border-sky-500 mb-3">
+<div [formGroup]="form" class="space-y-4 bg-sky-50 p-6 rounded-lg border-l-4 border-sky-500 mb-3">
     <div class="flex items-center justify-between mb-4">
         <p>
             <span class="text-lg font-semibold text-emerald-900">{{title()}}</span>
@@ -9,22 +9,22 @@
     </div>
     <p class="text-gray-700 font-medium mb-4">{{text()}}</p>
     <p class="text-gray-700 font-mono text-sm mb-4">Hints - {{hints()}}</p>
-    <div class="space-y-2 mt-3">
+    <div class="space-y-2 mt-3" formArrayName="providedAnswer">
         <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-sky-100 cursor-pointer transition">
-            <input type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
-            <span class="text-gray-700">{{answers()?.optionA}}</span>
+            <input [formControlName]="0" (change)="onChange()" type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
+            <span class="text-gray-700">{{answers()?.optA}}</span>
         </label>
         <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-sky-100 cursor-pointer transition">
-            <input type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
-            <span class="text-gray-700">{{answers()?.optionB}}</span>
+            <input [formControlName]="1" (change)="onChange()"  type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
+            <span class="text-gray-700">{{answers()?.optB}}</span>
         </label>
         <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-sky-100 cursor-pointer transition">
-            <input type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
-            <span class="text-gray-700">{{answers()?.optionC}}</span>
+            <input [formControlName]="2" (change)="onChange()"  type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
+            <span class="text-gray-700">{{answers()?.optC}}</span>
         </label>
         <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-sky-100 cursor-pointer transition">
-            <input type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
-            <span class="text-gray-700">{{answers()?.optionD}}</span>
+            <input [formControlName]="3" (change)="onChange()"  type="checkbox" class="w-4 h-4 text-sky-600 rounded focus:ring-sky-500">
+            <span class="text-gray-700">{{answers()?.optD}}</span>
         </label>
         
     </div>

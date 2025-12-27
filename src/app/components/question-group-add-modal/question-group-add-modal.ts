@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import QuestionGroups from '../../DataTypes/questionGroupTypes';
 
 @Component({
   selector: 'app-question-group-add-modal',
@@ -20,8 +19,8 @@ export class QuestionGroupAddModal {
     groupStatus: new FormControl('')
   })
   onSubmit(){
-    this.http.post("http://localhost:3000/questionGroups", this.form.value)
-    .subscribe(data=>alert(`${(data as QuestionGroups).groupName} added successfully.`))
+    this.http.post("http://localhost:4000/api/v1/question-groups/add-new-group", this.form.value)
+    .subscribe((data:any)=>alert(`${(data)?.data?.groupName} added successfully.`));
     this.form.reset();
   }
 }

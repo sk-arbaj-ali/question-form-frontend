@@ -1,7 +1,7 @@
 interface Mcq{
-    optionA:string,
-    optionB:string,
-    optionC:string,
-    optionD:string,
+    optA:string,
+    optB:string,
+    optC:string,
+    optD:string,
 };
 export default Mcq;

@@ -4,7 +4,8 @@ import { QuestionForm } from './components/question-form/question-form';
 import { QuestionGroup } from './components/question-group/question-group';
 import { Login } from './components/authentication/login/login';
 import { Signup } from './components/authentication/signup/signup';
-import { AnswerSheet } from './components/answer-sheet/answer-sheet';
+import { Logout } from './components/authentication/logout/logout';
+import { AnswerSheetContainer } from './components/answer-sheet-container/answer-sheet-container';
 
 
 export const routes: Routes = [
@@ -21,15 +22,19 @@ export const routes: Routes = [
         component: QuestionGroup,
     },
     {
-        path:"login-to-platform",
+        path:"login-to-platform/:role",
         component: Login
     },
     {
-        path:"sign-up-to-platform",
+        path:"sign-up-to-platform/:role",
         component: Signup
     },
     {
         path:"show-answer-sheets-for-student",
-        component: AnswerSheet
+        component: AnswerSheetContainer
+    },
+    {
+        path:"logout",
+        component: Logout
     }
 ];

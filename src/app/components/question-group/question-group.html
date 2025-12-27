@@ -50,7 +50,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center justify-center gap-2">
-                                        <button (click)="toggleEditQuestionModal(true,item.id)"
+                                        <button (click)="toggleEditQuestionModal(true,item._id)"
                                             class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -59,7 +59,7 @@
                                             </svg>
                                             Edit
                                         </button>
-                                        <button (click)="deleteGroup(item.id)"
+                                        <button (click)="deleteGroup(item._id)"
                                             class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg text-sm font-medium transition-colors duration-150 flex items-center gap-2">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

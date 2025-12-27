@@ -8,15 +8,15 @@
         </div>
         <span class="ml-4 px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">Marks: {{marks()}}</span>
     </div>
-    <div class="flex gap-4 pt-4">
+    <div class="flex gap-4 pt-4" [formGroup]="form">
         <label
             class="flex-1 flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-emerald-200 hover:border-emerald-500 cursor-pointer transition group">
-            <input type="radio" name="q2" value="true" class="w-5 h-5 text-green-600 accent-green-600">
+            <input formControlName="providedAnswer" (change)="onChange()" type="radio" value="true" class="w-5 h-5 text-green-600 accent-green-600">
             <span class="text-gray-700 font-semibold group-hover:text-emerald-700">True</span>
         </label>
         <label
             class="flex-1 flex items-center gap-3 p-4 bg-white rounded-lg border-2 border-emerald-200 hover:border-emerald-500 cursor-pointer transition group">
-            <input type="radio" name="q2" value="false" class="w-5 h-5 text-red-600 accent-red-600">
+            <input formControlName="providedAnswer" (change)="onChange()" type="radio" value="false" class="w-5 h-5 text-red-600 accent-red-600">
             <span class="text-gray-700 font-semibold group-hover:text-emerald-700">False</span>
         </label>
     </div>

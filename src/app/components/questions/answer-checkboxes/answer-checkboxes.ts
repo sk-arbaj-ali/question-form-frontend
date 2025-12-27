@@ -10,14 +10,14 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class AnswerCheckboxes {
   form = model();
   formGroup = new FormGroup({
-    optionA: new FormControl(''),
-    optionB: new FormControl(''),
-    optionC: new FormControl(''),
-    optionD: new FormControl(''),
-    checkOptionA: new FormControl(false),
-    checkOptionB: new FormControl(false),
-    checkOptionC: new FormControl(false),
-    checkOptionD: new FormControl(false),
+    optA: new FormControl(''),
+    optB: new FormControl(''),
+    optC: new FormControl(''),
+    optD: new FormControl(''),
+    checkOptA: new FormControl(false),
+    checkOptB: new FormControl(false),
+    checkOptC: new FormControl(false),
+    checkOptD: new FormControl(false),
   });
   trackChange(){
     this.form.set(this.formGroup);

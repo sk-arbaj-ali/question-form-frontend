@@ -1,4 +1,4 @@
-<div class="space-y-4 bg-rose-50 p-6 rounded-lg border-l-4 border-rose-500 mb-3">
+<div class="space-y-4 bg-rose-50 p-6 rounded-lg border-l-4 border-rose-500 mb-3" [formGroup]="form">
     <div class="flex items-start justify-between">
         <div class="flex-1">
             <h3 class="text-lg font-bold text-emerald-900 mb-3">{{title()}}</h3>
@@ -9,7 +9,10 @@
     </div>
     <label class="block">
         Provide the answer here:
-        <textarea rows="5"
+        <textarea
+            formControlName="providedAnswer"
+            (input)="onChange()" 
+            rows="5"
             class="mt-2 block w-full rounded-md border-rose-300 shadow-sm focus:border-rose-500 focus:ring-rose-500 px-4 py-2 border"
             placeholder="Share your thoughts..."></textarea>
     </label>

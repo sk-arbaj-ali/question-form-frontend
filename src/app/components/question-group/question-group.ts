@@ -29,14 +29,18 @@ export class QuestionGroup {
     if(visibility==false) this.fetchGroupsData();
   }
   fetchGroupsData(){
-    this.http.get("http://localhost:3000/questionGroups")
-    .subscribe(data=>this.qGroups.set(data as QuestionGroups[]));
+    this.http.get("http://localhost:4000/api/v1/question-groups/get-all-groups")
+    .subscribe((res:any) => {
+      if(res.status === 200){
+        this.qGroups.set(res?.data as QuestionGroups[])
+      }
+    });
   }
   deleteGroup(id:string){
-    this.http.delete("http://localhost:3000/questionGroups/"+id)
-    .subscribe((data)=>{
+    this.http.post("http://localhost:4000/api/v1/question-groups/delete-one-question-group-by-id",{_id:id})
+    .subscribe((res:any)=>{
       this.fetchGroupsData();
-      alert(`${(data as QuestionGroups).groupName} deleted successfully.`);
+      alert(`${res?.data?.groupName} deleted successfully.`);
     });
   }
 }

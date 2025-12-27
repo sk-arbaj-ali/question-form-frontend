@@ -1,5 +1,5 @@
 export default interface QuestionGroups{
-    id: string,
+    _id: string,
     groupName: string,
     groupStatus: string
 }

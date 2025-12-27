@@ -12,28 +12,29 @@
     <p class="text-gray-700 font-medium mb-4">{{text()}}</p>
     <p class="text-gray-700 font-mono text-sm mb-4">Hints - {{hints()}}</p>
 
-    <div class="space-y-2">
+    <div class="space-y-2" [formGroup]="form">
         <label
             class="flex items-center space-x-3 p-3 rounded-lg hover:bg-emerald-100 cursor-pointer transition border-2 border-transparent hover:border-emerald-400">
-            <input type="radio" name="sample_mcq" value={{answers()?.optionA}} class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
-            <span class="text-gray-700">{{answers()?.optionA}}</span>
+            <input (change)="onChange()" formControlName="providedAnswer" type="radio" value={{answers()?.optA}} class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+            <span class="text-gray-700">{{answers()?.optA}}</span>
         </label>
         <label
             class="flex items-center space-x-3 p-3 rounded-lg hover:bg-emerald-100 cursor-pointer transition border-2 border-transparent hover:border-emerald-400">
-            <input type="radio" name="sample_mcq" value={{answers()?.optionB}}
+            <input (change)="onChange()" formControlName="providedAnswer" type="radio" value={{answers()?.optB}}
                 class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
-            <span class="text-gray-700">{{answers()?.optionB}}</span>
+            <span class="text-gray-700">{{answers()?.optB}}</span>
         </label>
         <label
             class="flex items-center space-x-3 p-3 rounded-lg hover:bg-emerald-100 cursor-pointer transition border-2 border-transparent hover:border-emerald-400">
-            <input type="radio" name="sample_mcq" value={{answers()?.optionC}}
+            <input (change)="onChange()" formControlName="providedAnswer" type="radio" value={{answers()?.optC}}
                 class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
-            <span class="text-gray-700">{{answers()?.optionC}}</span>
+            <span class="text-gray-700">{{answers()?.optC}}</span>
         </label>
         <label
             class="flex items-center space-x-3 p-3 rounded-lg hover:bg-emerald-100 cursor-pointer transition border-2 border-transparent hover:border-emerald-400">
-            <input type="radio" name="sample_mcq" value={{answers()?.optionD}}
+            <input (change)="onChange()" formControlName="providedAnswer" type="radio" value={{answers()?.optD}}
                 class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
-            <span class="text-gray-700">{{answers()?.optionD}}</span>
+            <span class="text-gray-700">{{answers()?.optD}}</span>
         </label>
     </div>
+</div>
